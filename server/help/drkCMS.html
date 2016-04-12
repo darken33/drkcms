@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>drkCMS - Manuel Utilisateur</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+</head>
+<body bgcolor="#ffffff" text="#000000" link="#0000ee" alink="#0000ee"
+ vlink="#551a8b">
+<h1>drkCMS - Manuel Utilisateur</h1>
+<b>Le 06/04/2004,</b><b> par Philippe Bousquet</b><b> &lt;</b><a
+ href="mailto:Darken33@free.fr"> Darken33@free.fr</a><b>&gt; </b><a
+ href="http://darken33.free.fr/">http://darken33.free.fr/</a><br>
+<hr width="100%" size="2"><font color="#000000"><b>SOMMAIRE<br>
+</b></font>
+<ul id="mozToc">
+<!--mozToc h2 1 h3 2 h4 3 h5 4 h6 5--><li><a href="#mozTocId537504">1.
+Presentation</a>
+    <ul>
+      <li><a href="#mozTocId629256">1.1. Qu'est ce qu'un CMS ?</a></li>
+      <li><a href="#mozTocId571178">1.2. Pourquoi drkCMS ?</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId996846">2. Installation</a>
+    <ul>
+      <li><a href="#mozTocId51918">2.1. Configuration Requise</a></li>
+      <li><a href="#mozTocId15997">2.2. Configuration Recommend&eacute;e</a></li>
+      <li><a href="#mozTocId884234">2.3. Installation</a></li>
+      <li><a href="#mozTocId227232">2.4. Configuration</a>
+        <ul>
+          <li><a href="#mozTocId534563">2.4.1. La configuration de
+base&nbsp;</a></li>
+          <li><a href="#mozTocId404870">2.4.2. Les Modules de drkCMS</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId809010">3. Utilisation de drkCMS</a>
+    <ul>
+      <li><a href="#mozTocId320225">3.1. La page index.php</a></li>
+      <li><a href="#mozTocId407465">3.1. La page article.php</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId519618">4. Administration</a>
+    <ul>
+      <li><a href="#mozTocId704616">4.1. G&eacute;rer ses
+Cat&eacute;gories</a></li>
+      <li><a href="#mozTocId265205">4.2. G&eacute;rer ses Rubriques</a></li>
+      <li><a href="#mozTocId611797"> 4.3. G&eacute;rer ses Articles</a></li>
+      <li><a href="#mozTocId848692">4.4. Le Langage Interne</a>
+        <ul>
+          <li><a href="#mozTocId929631">Titre</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId359554">5. Ou trouver drkCMS</a></li>
+  <li><a href="#mozTocId174414">6. Copyright &amp; Licence</a></li>
+  <li><a href="#mozTocId917344">7. Auteur</a></li>
+</ul>
+<font color="#000000"><b></b></font>
+<hr width="100%" size="2">
+<h2><a name="mozTocId537504" class="mozTocH2"></a>1. Presentation</h2>
+drkCMS est un gestionaire de contenu WEB tels que SPIP (mais largement
+simplifi&eacute;), Ecrit en PHP et fonctionnant sur une base de
+donn&eacute;es MySQL.<br>
+Il fonctionne sur un mod&egrave;le Cat&eacute;gories / Rubriques /
+Articles.<br>
+<h3><a name="mozTocId629256" class="mozTocH3"></a>1.1. Qu'est ce qu'un
+CMS ?</h3>
+Un syst&egrave;me de Gestion de Contenu (SGC) ou Content Management
+System (CMS) est un
+outil permettant de g&eacute;n&eacute;rer des site WEB
+structur&eacute;s sans pour autant avoir besoin
+de grandes connaissances dans l'administration de site WEB.
+Il permet g&eacute;n&eacute;ralement de structurer son site web
+&agrave; travers des th&egrave;mes, et d'&eacute;crire des articles
+&agrave; l'int&eacute;rieur de ces th&egrave;mes. Il n&eacute;cessite
+g&eacute;nralement un Gestionnaire de Bases de donn&eacute;es (souvent
+MySQL) et un langage permetant de faire fonctionner l'outil (souvent
+PHP).
+Le plus connus des CMS est SPIP : <a href="http://www.spip.net">http://www.spip.net</a>
+<h3><a name="mozTocId571178" class="mozTocH3"></a>1.2. Pourquoi drkCMS ?</h3>
+drkCMS est lui aussi un Gestionnaire de Contenu, mais se veut tres
+simple et minimal :
+<ul>
+  <li>peu d'&eacute;lements constitue l'outil de gestion</li>
+  <li>seul l'administrateur (webmaster) peut structurer le site et
+ajouter des articles</li>
+  <li>la prise en main se veut rapide et efficace</li>
+</ul>
+il est cependant relativement puissant et modulaire :
+<ul>
+  <li>on peut facilement l'interfacer avec toute autre ressource
+externe (grace aux rubriques externes)</li>
+  <li>on peut facilement y int&eacute;grer de nouvelle
+fonctionalit&eacute;s grace aux modules</li>
+  <li>il permet grace &agrave; son langage interne de
+g&eacute;n&eacute;rer des pages respectant le XHTML 1.0</li>
+  <li>on peut facilement para&eacute;ter la mise en forme graces aux
+feuilles de styles CSS 2</li>
+</ul>
+<hr width="100%" size="2">
+<h2><a name="mozTocId996846" class="mozTocH2"></a>2. Installation</h2>
+<h3><a name="mozTocId51918" class="mozTocH3"></a>2.1. Configuration
+Requise</h3>
+<ul>
+  <li>Un serveur HTTP supportant le PHP4</li>
+  <li>Le module PHP4<br>
+  </li>
+  <li>Un serveur de base de donn&eacute;es MySQL</li>
+</ul>
+<h3><a name="mozTocId15997" class="mozTocH3"></a>2.2. Configuration
+Recommend&eacute;e</h3>
+Il ne s'agit pas exactement de la configuration recommend&eacute;e,
+mais plut&ocirc;t de la configuration sur laquelle, j'ai
+d&eacute;velopp&eacute; drkCMS et qui donc est sure de le supporter :<br>
+<ul>
+  <li>Apache v0.1.2</li>
+  <li>PHP 4 v0.1.2</li>
+  <li>MySQL v3.2.125</li>
+</ul>
+<h3><a name="mozTocId884234" class="mozTocH3"></a>2.3. Installation</h3>
+Dans un premier temps vous devez d&eacute;compresser l'archive
+contenant drkCMS, dans le r&eacute;pertoire contenant votre site WEB :<br>
+<blockquote><code>$ tar xzf drkcms-0.1.tar.gz ./</code><br>
+</blockquote>
+Ensuite vous devz cr&eacute;er votre base de donn&eacute;es sous MySQL<br>
+<blockquote><code>
+$ mysql -uroot<br/>
+mysql> create database drkcms;<br/>
+Query OK, 1 row affected (0.00 sec)
+</code><br>
+</blockquote>
+Enfin executer sous MySQL le contenu du fichier sql/drkcms.sql<br>
+<blockquote><code>$ tar xzf drkcms-0.1.tar.gz ./</code><br>
+</blockquote>
+Vous pouvez alors suprrimer le r&eacute;pertoire sql<br>
+<blockquote><code>$ rm -rf sql/</code><br>
+</blockquote>
+Le site n'est cependant pas tout &agrave; fait pret, en effet il faut
+maintenant
+param&eacute;trer drkCMS pour qu'il prenne en compte toute les
+informations
+relatives &agrave; votre site WEB.<br>
+<h3><a name="mozTocId227232" class="mozTocH3"></a><code></code>2.4.
+Configuration</h3>
+Afin de simplifier au maximum la configuration du votre site, tous les
+param&egrave;tres
+sont stock&eacute;s dans le fichier inc/config.inc.php.<br>
+<h4><a name="mozTocId534563" class="mozTocH4"></a>2.4.1. La
+configuration de base&nbsp;</h4>
+Voici les diff&eacute;rents champs modifiables pour la configuration de
+votre
+site WEB :<br>
+<blockquote><code>&nbsp;<b>$CONFIG["dbhost"]="localhost";</b></code>
+Ceci indique quel est votre serveur MySQL<br>
+  <b><code>&nbsp;$CONFIG["dbuser"]="root";</code></b> Ceci permet
+de sp&eacute;cifier l'utilisateur MySQL<br>
+  <b><code>&nbsp;$CONFIG["dbpassword"]="";</code></b> Ceci permet
+de sp&eacute;cifier le Mot de passe de l'utilisateur MySQL<br>
+  <b><code>&nbsp;$CONFIG["dbdatabase"]="drkcms";</code></b> Ceci
+est le nom de votre Base MySQL<br>
+  <b><code>&nbsp;$CONFIG["titre"]="drkCMS - Gestionnaire de Contenue
+WEB";</code></b> Ceci est le titre de votre site web<br>
+  <b><code>&nbsp;$CONFIG["keywords"]="drkCMS, Content, Manager, System,
+CMS, PHP, MySQL, free, software";</code></b> Ici on sp&eacute;cifie les
+mots
+cl&eacute;s pour les moteurs de recherches<br>
+  <b><code>&nbsp;</code><code>$CONFIG["theme"]="themes/default";</code></b>
+Ici on sp&eacute;cifie le r&eacute;pertoire du th&egrave;me &agrave;
+utiliser<br>
+  <b><code>&nbsp;$CONFIG["password"]="admin";</code></b> Ici on
+sp&eacute;cifie
+le mot de passe pour l'administration du site (ajout d'articles, de
+cat&eacute;gories,
+...)<br>
+  <b><code>&nbsp;$CONFIG["webmaster"]="Philippe Bousquet";</code></b>
+Ici on indique le Nom du Webmaster<br>
+  <b>&nbsp; <code>$CONFIG["adresse"]="28 cours du
+g&eacute;n&eacute;ral
+De Gaulle, 33170 Gradignan";</code></b> L'adresse du Webmaster
+(Facultatif)<br>
+  <b><code>&nbsp;$CONFIG["telephone"]="06.61.99.25.84";</code></b> Le
+numero de t&eacute;l&eacute;phone du Webmaster (Facultatif)<br>
+  <b><code>&nbsp;$CONFIG["email"]="Darken33@free.fr";</code></b>
+L'email du Webmaster<br>
+  <b><code>&nbsp;$CONFIG["navbar"]="Oui";</code></b> Ici on indique
+si l'on veut afficher la bare de navigation (Inutile si vous ne voulez
+qu'une
+seule Cat&eacute;gorie) <br>
+  <b><code>&nbsp;$CONFIG["menu"]="Oui";</code></b> Ici on indique
+si l'on veut afficher le menu <br>
+  <code><b>&nbsp;$CONFIG["date"]="Oui";</b> </code>Ici on indique
+si l'on veut afficher la date de cr&eacute;ation des articles.<br>
+</blockquote>
+<h4><a name="mozTocId404870" class="mozTocH4"></a>2.4.2. Les Modules de
+drkCMS</h4>
+drkCMS permet l'ajout de modules sp&eacute;cifique dans le panel Gauche
+(celui
+du menu), drkCMS est fournit avec 4 Modules : <br>
+<blockquote><b><code>&nbsp;</code><code>$MODULES[0]="modules/admin.mod.php";</code></b>
+Module permetant la connection &agrave; l'administration du site
+(Ajout,
+modification d'Articles)<br>
+  <code><b>&nbsp;$MODULES[1]="modules/visiteurs.mod.php";</b> </code>
+Module affichant un compteur de visite (Sp&eacute;cifique &agrave;
+Free.fr)<br>
+  <b><code>&nbsp;$MODULES[2]="modules/webmaster.mod.php";</code></b>
+Module affichant les infos du Webmaster<br>
+  <b><code>&nbsp;$MODULES[3]="modules/hebergeur.mod.php";</code></b>
+Module affichant le logo de l'hebergeur<br>
+</blockquote>
+Vous pouvez bien entendu modifier les modules ou ajouter vos propres
+modules,
+pour cela il suffit de rajouter un &eacute;l&eacute;ment dans le
+tableau
+:<br>
+<code></code>
+<blockquote><code>&nbsp;$MODULES[4]="modules/monmodule.php";</code><br>
+</blockquote>
+<hr width="100%" size="2">
+<h2><a name="mozTocId809010" class="mozTocH2"></a>3. Utilisation de
+drkCMS</h2>
+drkCMS se veut tr&egrave;s simple, de ce fait il ne comprend que deux
+pages
+:<br>
+<ul>
+  <li><b><code>index.php</code></b> : page principale, qui
+liste les articles d'une rubrique</li>
+  <li><b><code>article.php</code></b> : cette page affiche
+le contenu d'un article</li>
+</ul>
+<h3><a name="mozTocId320225" class="mozTocH3"></a>3.1. La page index.php</h3>
+Cette page est le point d'entr&eacute;e de drkCMS, elle est
+d&eacute;coup&eacute;e
+en 7 parties :<br>
+<u><b><br>
+La partie Ent&ecirc;te<br>
+</b></u>S'il existe un fichier "<code>baniere.png</code>" dans
+le r&eacute;pertoire du th&egrave;me du site, drkCMS affichera
+celui-ci.
+Sinon il affcihera le titre du site contenu dans le fichier "<code>inc/config.inc.php</code>
+".<br>
+<u><b><br>
+La barre de navigation</b></u><br>
+Cette barre de navigation (si on demande de l'afficher) permet de
+s&eacute;lectionner
+une cat&eacute;gorie.<br>
+<u><b><br>
+Le menu</b></u><br>
+Ce menu permet d'afficher l'ensemble des rubriques contenus dans la
+cat&eacute;gorie
+courante. <br>
+Le fait de cliquer sur un &eacute;l&eacute;ment du menu permet
+d'afficher
+la liste des articles de la rubrique concern&eacute;e.<br>
+<u><b><br>
+Les modules</b></u><br>
+Sous le menu on ins&egrave;re tous les modules list&eacute;s dans le
+fichier
+"<code>inc/config.inc.php</code>".<br>
+<u><b><br>
+Description de la cat&eacute;gorie</b></u><br>
+Si la cat&eacute;gorie en cours poss&egrave;de un texte de
+pr&eacute;sentation
+celui ci est affcih&eacute;<br>
+<u><b><br>
+La liste des articles</b></u><br>
+Cette parti affiche la liste des articles contenus dans la rubrique
+courante.<br>
+Si l'article poss&egrave;de un contenu lorsque l'on clique sur le titre
+de l'article, on se d&eacute;branche vers la page "article.php".<br>
+Si l'article contient un texte d'introduction, celui est affich&eacute;.<br>
+<br>
+<u><b>Le pied de page</b></u><br>
+Le pied de page affiche des information sur drkCMS.
+<h3><a name="mozTocId407465" class="mozTocH3"></a>3.1. La page
+article.php</h3>
+Cette page page permet d'afficher le contenu d'un article
+s&eacute;lectionn&eacute;
+&agrave; partir de la page index.php, elle est d&eacute;coup&eacute;e
+en
+6 parties :<br>
+<u><b><br>
+La partie Ent&ecirc;te</b></u><br>
+S'il existe un fichier "<code>baniere.png</code>" dans le
+r&eacute;pertoire
+du th&egrave;me du site, drkCMS affichera celui-ci. Sinon il affcihera
+le
+titre du site contenu dans le fichier "<code>inc/config.inc.php</code>".<br>
+<u><b><br>
+La barre de navigation</b></u><br>
+Cette barre de navigation (si on demande de l'afficher) permet de
+s&eacute;lectionner
+une cat&eacute;gorie (on retourne sur la page index.php).<br>
+<u><b><br>
+Le menu</b></u><br>
+Ce menu permet d'afficher l'ensemble des rubriques contenus dans la
+cat&eacute;gorie
+courante. <br>
+Le fait de cliquer sur un &eacute;l&eacute;ment du menu permet
+d'afficher
+la liste des articles de la rubrique concern&eacute;e (on retourne sur
+la
+page index.php).<br>
+<u><b><br>
+Les modules</b></u><br>
+Sous le menu on ins&egrave;re tous les modules list&eacute;s dans le
+fichier
+"<code>inc/config.inc.php</code>".<br>
+<u><b><br>
+Le contenu de l'article<br>
+</b></u>Dans cette partie on affcihe le contenu complet de
+l'article s&eacute;lectionn&eacute;.<br>
+<u><b><br>
+Le pied de page<br>
+</b></u>Le pied de page affiche des information sur drkCMS.<br>
+<br>
+<hr width="100%" size="2"><br>
+<h2><a name="mozTocId519618" class="mozTocH2"></a>4. Administration</h2>
+Le module administration inclus dans drkCSM, permet de se connecter au
+panneau d'administration du site. Pour cela il suffit de cliquer sur ce
+connecter, puis d'entrer le mot de passe d&eacute;finit dans le fichier
+"inc/config.inc.php" $CONFIG["password"].<br>
+<h3><a name="mozTocId704616" class="mozTocH3"></a>4.1. G&eacute;rer ses
+Cat&eacute;gories</h3>
+Une fois identifi&eacute;s vous vous d&eacute;brancher sur la liste des
+cat&eacute;gories (ce sont les titre propos&eacute;s dans la barre de
+navigation du site) disponibles sur votre site et vous pouvez alors :
+<ul>
+  <li><b>Ajouter</b> une nouvelle cat&eacute;gorie</li>
+  <li><b>Editer</b> une cat&eacute;gorie existante</li>
+  <li><b>Supprimer</b> une cat&eacute;gorie (celle ci ne doit contenir
+aucune rubrique, ni aucun article). ATTENTION : aucune confirmation
+n'est demand&eacute; lorsque vous supprimez une cat&eacute;gorie</li>
+  <li><b>G&eacute;rer</b> les rubriques contenues dans la
+cat&eacute;gorie</li>
+</ul>
+<br>
+Une Cat&eacute;gorie est d&eacute;finit par :
+<ul>
+  <li><b>Un nom</b> (qui saffiche dans la barre de navigation)</li>
+  <li><b>Un descriptif</b> (vous pouvez ici utiliser le langage interne
+pour agr&eacute;menter votre texte)</li>
+  <li><b>Un numero d'ordre</b> (qui indique la position de la
+cat&eacute;gorie dans la barre de navigation)</li>
+</ul>
+<h3><a name="mozTocId265205" class="mozTocH3"></a>4.2. G&eacute;rer ses
+Rubriques</h3>
+Cette liste permet de g&eacute;rer le menu de la cat&eacute;gorie
+courante, en effet vous pouvez :
+<ul>
+  <li><b>Ajouter</b> une nouvelle rubrique</li>
+  <li><b>Editer</b> une rubrique existante</li>
+  <li><b>Supprimer</b> une rubrique (celle ci ne doit contenir aucun
+article). ATTENTION : aucune confirmation n'est demand&eacute; lorsque
+vous supprimez une rubrique</li>
+  <li><b>G&eacute;rer</b> les articles contenus dans la rubrique</li>
+</ul>
+<br>
+Une Rubrique est d&eacute;finit par :
+<ul>
+  <li><b>Un nom</b> (qui saffiche dans le menu de la Cat&eacute;gorie)</li>
+  <li><b>Un lien externe</b> (&agrave; renseigner si vous voulez
+pointer vers une ressource externe &agrave; drkCMS)</li>
+  <li><b>Un numero d'ordre</b> (qui indique la position de la rubrique
+dans le menu)</li>
+</ul>
+<h3><a name="mozTocId611797" class="mozTocH3"></a> 4.3. G&eacute;rer
+ses Articles</h3>
+Cette liste permet de g&eacute;rer les articles contenus dans une
+rubrique, en effet vous pouvez :
+<ul>
+  <li><b>Ajouter</b> un nouvel article</li>
+  <li><b>Editer</b> un article</li>
+  <li><b>Supprimer</b> un article. ATTENTION : aucune confirmation
+n'est demand&eacute; lorsque vous supprimez un article</li>
+  <li><b>Pr&eacute;visualiser</b> un article</li>
+</ul>
+<br>
+Un Article est d&eacute;finit par :
+<ul>
+  <li><b>Un titre</b> (qui saffiche dans la liste des articles)</li>
+  <li><b>Une Introduction</b> (vous pouvez ici utiliser le langage
+interne pour agr&eacute;menter votre texte)</li>
+  <li><b>Un Contenu</b> (vous pouvez ici utiliser le langage interne
+pour agr&eacute;menter votre texte)</li>
+  <li><b>Un numero d'ordre</b> (qui indique la position de l'article
+dans la liste)</li>
+  <li><b>Un Etat Visible/Invisible</b> "Invisible" par
+d&eacute;faut(Permet de ne pas afficher un article en cours d'edition)</li>
+</ul>
+<h3><a name="mozTocId848692" class="mozTocH3"></a>4.4. Le Langage
+Interne</h3>
+<table border="1" style="width: 80%;">
+  <tbody>
+    <tr>
+      <td style="width: 25%;"><b>Code</b></td>
+      <td style="width: 40%;"><b>Description</b></td>
+      <td><b>Exemple</b></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><i>Alignement du texte</i></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[LEFT]</b>texte<b>[/LEFT]</b></code></td>
+      <td style="vertical-align: top;">Permet de forcer un alignement
+&agrave; gauche</td>
+      <td> <code></code>
+      <div style="text-align: left;">Je suis &agrave; gauche </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[CENTER]</b>texte<b>[/CENTER]</b></code></td>
+      <td style="vertical-align: top;">Permet de forcer un alignement
+au centre</td>
+      <td> <code></code>
+      <div style="text-align: center;">Je suis au centre </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[RIGHT]</b>texte<b>[/RIGHT]</b></code></td>
+      <td style="vertical-align: top;">Permet de forcer un alignement
+&agrave; droite</td>
+      <td> <code></code>
+      <div style="text-align: right;">Je suis &agrave; droite </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><i>Style du texte</i></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[B]</b>texte<b>[/B]</b></code></td>
+      <td style="vertical-align: top;">Permet de mettre du texte en gras</td>
+      <td><strong>Texte en gras</strong> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[I]</b>texte<b>[/I]</b></code></td>
+      <td style="vertical-align: top;">Permet de mettre du texte en
+italique</td>
+      <td> <code></code><em>Texte en italique</em> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[U]</b>texte<b>[/U]</b></code></td>
+      <td style="vertical-align: top;">Permet de souligner du texte</td>
+      <td> <code></code><span style="text-decoration: underline;">Texte
+soulign&eacute;</span> </td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><i>Formatage
+particulier</i></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[TITLE]</b>texte<b>[/TITLE]</b></code></td>
+      <td style="vertical-align: top;">Permet de cr&eacute;er un titre
+de paragraphe</td>
+      <td> <code></code>
+      <h4><a name="mozTocId929631" class="mozTocH4"></a>Titre</h4>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[BIG]</b>texte<b>[/BIG]</b></code></td>
+      <td style="vertical-align: top;">Permet de cr&eacute;er un grand
+texte</td>
+      <td> <code></code><big>Grand Texte</big> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[SMALL]</b>texte<b>[/SMALL]</b></code></td>
+      <td style="vertical-align: top;">Permet de cr&eacute;er un petit
+texte</td>
+      <td> <code></code><small>Petit Texte</small> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[CODE]</b>code source<b>[/CODE]</b></code></td>
+      <td style="vertical-align: top;">Permet de formater un code source</td>
+      <td> <code></code><code><code
+ style="margin: 1em 1em 1em 2em; display: block; background-color: silver;">$
+echo "coucou"</code> </code></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[LIST]<br>
+&nbsp;&nbsp;[ITEM]</b>item 1<b>[/ITEM]<br>
+&nbsp;&nbsp;[ITEM]</b>item 2<b>[/ITEM]<br>
+[/LIST]</b></code></td>
+      <td style="vertical-align: top;">Permet de cr&eacute;er une liste
+&agrave; puces</td>
+      <td> <code></code>
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><i>Les ressources
+externes</i></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[LINK]</b>lien
+hypertexte<b>[/LINK]</b></code></td>
+      <td style="vertical-align: top;">Permet de cr&eacute;er
+cr&eacute;er un lien hypertexte</td>
+      <td> <code></code><a href="http://darken33.free.fr/">http://darken33.free.fr/</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[MAIL]</b>addresse email<b>[/MAIL]</b></code></td>
+      <td style="vertical-align: top;">Permet d'afficher une adresse
+email</td>
+      <td> <code></code><a href="mailto:Darken33@free.fr">Darken33@free.fr</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[ICO]</b>image<b>[/ICO]</b></code></td>
+      <td style="vertical-align: top;">Permet d'afficher une icone</td>
+      <td> <code></code><img src="image.png" alt="icone"
+ style="float: left;">Texte Texte Texte Texte Texte Texte Texte Texte
+Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte
+Texte </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><code><b>[IMG]</b>image<b>[/IMG]</b></code></td>
+      <td style="vertical-align: top;">Permet d'afficher une image</td>
+      <td> <code></code><img src="image.png" alt="image"><br>
+Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte
+Texte </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<hr width="100%" size="2">
+<h2><a name="mozTocId359554" class="mozTocH2"></a>5. Ou trouver drkCMS</h2>
+<span style="font-weight: bold;">drkCMS</span> vas surement
+&eacute;voluer, donc si vous voulez r&eacute;cup&eacute;rer les
+nouvelles versions ou tous simplement vous tenir inform&eacute; sur le
+projet, veuillez vous connecter &agrave; l'addresse suivante <a
+ href="http://darken33.free.fr/">http://darken33.free.fr/</a>.<br>
+<hr width="100%" size="2">
+<h2><a name="mozTocId174414" class="mozTocH2"></a>6. Copyright &amp;
+Licence</h2>
+<b>drkCMS</b> Copyright &copy; 2004 - Philippe Bousquet
+&lt;Darken33@free.fr&gt;.<br>
+Ce logiciel est sous licence <b>Gnu Genral Public License</b>.<br>
+Du fait de la gratuit&eacute; du logiciel, et comme
+pr&eacute;cis&eacute; dans la GPL, je ne fournis aucune garantie de
+quelle forme qu'elle soit quant &agrave; l'utilisation de ce logiciel
+ou d&eacute;riv&eacute;s.<br>
+&nbsp;<br>
+<hr style="width: 100%; height: 2px;">
+<h2><a name="mozTocId917344" class="mozTocH2"></a>7. Auteur</h2>
+<span style="font-weight: bold;">Philippe Bousquet<br>
+</span>R&eacute;sidence le Vend&ocirc;me Apt 21, 80 rue des
+Sabli&egrave;res 33000 Bordeaux. France.<br>
+<span style="font-weight: bold;">Tel :</span> 06.61.99.25.84<br>
+<span style="font-weight: bold;">Email :</span> <a
+ href="mailto:Darken33@free.fr">Darken33@free.fr</a><br>
+<br>
+<hr width="100%" size="2">Copyright (c) 2004 - Philippe Bousquet<br>
+Ce document est sous Licence Free Documentation License<br>
+<br>
+</body>
+</html>
