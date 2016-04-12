@@ -40,6 +40,7 @@
   $install_modthemes=(isset($HTTP_POST_VARS['install_modthemes'])?$HTTP_POST_VARS['install_modthemes']:(isset($HTTP_GET_VARS['install_modthemes'])?$HTTP_GET_VARS['install_modthemes']:""));  
   $install_modwebmaster=(isset($HTTP_POST_VARS['install_modwebmaster'])?$HTTP_POST_VARS['install_modwebmaster']:(isset($HTTP_GET_VARS['install_modwebmaster'])?$HTTP_GET_VARS['install_modwebmaster']:""));  
   $install_modhost=(isset($HTTP_POST_VARS['install_modhost'])?$HTTP_POST_VARS['install_modhost']:(isset($HTTP_GET_VARS['install_modhost'])?$HTTP_GET_VARS['install_modhost']:""));  
+  $install_date=(isset($HTTP_POST_VARS['install_date'])?$HTTP_POST_VARS['install_date']:(isset($HTTP_GET_VARS['install_date'])?$HTTP_GET_VARS['install_date']:""));  
 
   // Y a t'il une action particulière
   switch ($step9)

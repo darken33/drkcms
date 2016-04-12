@@ -108,7 +108,7 @@
   $line[2]=' * Générer par l installateur de drkCMS'."\n";
   $line[3]=' */'."\n\n";
   $line[4]='/* NE PAS EDITER */'."\n\n";
-  $line[5]='$CONFIG["version"]="0.1.3";'."\n";
+  $line[5]='$CONFIG["version"]="0.1.4";'."\n";
   $line[6]='$CONFIG["dbtype"]="'.$install_dbtype.'";'."\n";
   $line[7]='$CONFIG["dbhost"]="'.$install_dbhost.'";'."\n";
   $line[8]='$CONFIG["dbdatabase"]="'.$install_dbname.'";'."\n";
@@ -159,15 +159,15 @@
           </p>
           <p>
 <?php
-  if  ($error) echo $error;
-  else echo 'L\'écriture du fichier de configuration s\'est terminée avec succés.';
+  if  (!isset($error)) echo 'L\'écriture du fichier de configuration s\'est terminée avec succés.';
+  else echo $error;
 ?>            
           </p>
           <p id="submitbutton3">
             <input name="step10" value="Retour" type="submit">
 <?php
-  if  ($error) echo '<input name="step10" value="Refaire" type="submit">';
-  else echo '<input name="step10" value="Suivant" type="submit">';
+  if  (!isset($error)) echo '<input name="step10" value="Suivant" type="submit">';
+  else echo '<input name="step10" value="Refaire" type="submit">';
 ?>  
           </p>
         </form>

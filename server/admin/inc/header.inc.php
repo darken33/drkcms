@@ -12,6 +12,7 @@
    global $HTTP_COOKIE_VARS;
 
    $theme_drkCMS = ((isset($HTTP_POST_VARS['seltheme']))?$HTTP_POST_VARS['seltheme']:((isset($HTTP_COOKIE_VARS['theme_drkCMS']))?$HTTP_COOKIE_VARS['theme_drkCMS']:$CONFIG['theme']));
+   $error=(isset($HTTP_POST_VARS["error"])?$HTTP_POST_VARS["error"]:(isset($HTTP_GET_VARS["error"])?$HTTP_GET_VARS["error"]:""));
 
    /****************************************************
    * PATCH 20050209 : utilisations HTTP_POST_VARS     *

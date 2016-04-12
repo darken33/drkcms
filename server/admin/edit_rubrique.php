@@ -57,7 +57,7 @@
     echo '          <h2 class="box">Ajouter une Rubrique  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$theme_drkCMS.'/help.gif" alt="Aide" /></a></h2>'."\n";
     $nom="";
     $lien="";
-    $description=$row["description"];
+    $description="";
     $numord=1;
   }        
   else

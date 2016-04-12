@@ -10,12 +10,20 @@
   require("inc/user.inc.php");
   $session=new Session;
   $user=new User;
+  $nom=(isset($HTTP_POST_VARS["nom"])?$HTTP_POST_VARS["nom"]:(isset($HTTP_GET_VARS["nom"])?$HTTP_GET_VARS["nom"]:""));
+  $description=(isset($HTTP_POST_VARS["description"])?$HTTP_POST_VARS["description"]:(isset($HTTP_GET_VARS["description"])?$HTTP_GET_VARS["description"]:""));
+  $numord=(isset($HTTP_POST_VARS["numord"])?$HTTP_POST_VARS["numord"]:(isset($HTTP_GET_VARS["numord"])?$HTTP_GET_VARS["numord"]:""));
+  $id=(isset($HTTP_POST_VARS["id"])?$HTTP_POST_VARS["id"]:(isset($HTTP_GET_VARS["id"])?$HTTP_GET_VARS["id"]:""));
+  $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+  $lien=(isset($HTTP_POST_VARS["lien"])?$HTTP_POST_VARS["lien"]:(isset($HTTP_GET_VARS["lien"])?$HTTP_GET_VARS["lien"]:""));
+  $error=(isset($HTTP_POST_VARS["error"])?$HTTP_POST_VARS["error"]:(isset($HTTP_GET_VARS["error"])?$HTTP_GET_VARS["error"]:""));
+  $passwd=(isset($HTTP_POST_VARS["passwd"])?$HTTP_POST_VARS["passwd"]:(isset($HTTP_GET_VARS["passwd"])?$HTTP_GET_VARS["passwd"]:""));
+
   if (!($user->isValid($session)) && !($user->connect($passwd,$CONFIG["password"],$session)))
   {
     header("Location: index.php?error=Mot%20de%20passe%20incorrect.");
     exit();
   } 
-  $error="";
 
   // Controles des rubriques
   $nom=str_replace("'",'&#039;',$nom);

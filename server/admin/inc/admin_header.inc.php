@@ -19,6 +19,7 @@
    ****************************************************/
    $error=(isset($HTTP_POST_VARS["error"])?$HTTP_POST_VARS["error"]:(isset($HTTP_GET_VARS["error"])?$HTTP_GET_VARS["error"]:""));
    $PHPSESSID=(isset($HTTP_POST_VARS["PHPSESSID"])?$HTTP_POST_VARS["PHPSESSID"]:(isset($HTTP_GET_VARS["PHPSESSID"])?$HTTP_GET_VARS["PHPSESSID"]:""));
+   $passwd=(isset($HTTP_POST_VARS["passwd"])?$HTTP_POST_VARS["passwd"]:(isset($HTTP_GET_VARS["passwd"])?$HTTP_GET_VARS["passwd"]:""));
    
   require("inc/session.inc.php");
   require("inc/user.inc.php");

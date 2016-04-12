@@ -44,7 +44,8 @@
    // Charger une variable sauvegardée
    function load($name)
    {
-     return $_SESSION[$name];
+     if (isset($_SESSION[$name])) return $_SESSION[$name];
+     else return null;
    }
    
    // Fermer la session

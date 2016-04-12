@@ -9,15 +9,15 @@
             <div style="padding-left:10px;">
 <?
   echo '            <strong>'.$CONFIG["webmaster"].'</strong><br />'."\n";
-  if ($CONFIG["adresse"]!="")
+  if (isset($CONFIG["adresse"]) && $CONFIG["adresse"]!="")
   {
     echo '            '.$CONFIG["adresse"].'<br />'."\n";
   }  
-  if ($CONFIG["telephone"]!="")
+  if (isset($CONFIG["telephone"]) && $CONFIG["telephone"]!="")
   {
     echo '            <strong>Tel:</strong> '.$CONFIG["telephone"].'<br />'."\n";
   }  
-  if ($CONFIG["ICQ"]!="")
+  if (isset($CONFIG["ICQ"]) && $CONFIG["ICQ"]!="")
   {
     echo '            <strong>ICQ:</strong> '.$CONFIG["ICQ"].'<br />'."\n";
   }  

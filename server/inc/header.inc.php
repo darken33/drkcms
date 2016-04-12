@@ -24,6 +24,7 @@
  if (isset($HTTP_POST_VARS['settheme'])) setcookie("theme_drkCMS",$HTTP_POST_VARS['seltheme'],time()+31536000);
  
    $theme_drkCMS = ((isset($HTTP_POST_VARS['seltheme']))?$HTTP_POST_VARS['seltheme']:((isset($HTTP_COOKIE_VARS['theme_drkCMS']))?$HTTP_COOKIE_VARS['theme_drkCMS']:$CONFIG['theme']));
+   $error = ((isset($HTTP_POST_VARS['error']))?$HTTP_POST_VARS['error']:((isset($HTTP_COOKIE_VARS['error']))?$HTTP_COOKIE_VARS['error']:""));
    
  echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
 ?>
