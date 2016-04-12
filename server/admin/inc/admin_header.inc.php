@@ -3,6 +3,10 @@
  * par Philippe Bousquet <Darken33@free.fr> http://darken33.free.fr/
  * Distribué sous licence Gnu General Public License
  */
+
+  // Récupération de POST ou GET
+  $passwd=(isset($HTTP_POST_VARS["passwd"]?$HTTP_POST_VARS["passwd"]:(isset($HTTP_GET_VARS["passwd"]?$HTTP_GET_VARS["passwd"]:""))
+ 
   require("inc/session.inc.php");
   require("inc/user.inc.php");
   $session=new Session;

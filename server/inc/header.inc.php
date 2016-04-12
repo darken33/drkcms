@@ -3,6 +3,18 @@
  * par Philippe Bousquet <Darken33@free.fr> http://darken33.free.fr/
  * Distribué sous licence Gnu General Public License
  */
+
+  /****************************************************
+   * PATCH 20050209 : global HTTP_USER_AGENT          *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   global $HTTP_USER_AGENT;
+
+   /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $error=(isset($HTTP_POST_VARS["error"])?$HTTP_POST_VARS["error"]:(isset($HTTP_GET_VARS["error"])?$HTTP_GET_VARS["error"]:""));
  
  echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
 ?>

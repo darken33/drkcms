@@ -22,6 +22,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+  // Récupération de POST ou GET
+  $cat=(isset($HTTP_POST_VARS["cat"]?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"]?$HTTP_GET_VARS["cat"]:""))
+  $rub=(isset($HTTP_POST_VARS["rub"]?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"]?$HTTP_GET_VARS["rub"]:""))
+  $art=(isset($HTTP_POST_VARS["art"]?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"]?$HTTP_GET_VARS["art"]:""))
+
   // Retour sur la page d'index si sollicité à tort
   if ($art == "") 
   {
