@@ -29,6 +29,9 @@
   require("inc/config.inc.php");
   require("inc/header.inc.php");
   require("inc/langage.inc.php");
+  // correctif 0.1.5 --> pb de connection MySQL
+  mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
+  mysql_select_db($CONFIG["dbdatabase"]);
   
   /****************************************************
    * PATCH 20050209 : utilisations HTTP_POST_VARS     *
@@ -36,6 +39,14 @@
    ****************************************************/
    $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
    $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
+   
+   // correctif 0.1.5 --> récupérer la catégorie par défaut.
+   if ($cat=="") { 
+     $requete="SELECT MIN( id ) AS id FROM ".$CONFIG['dbprefix']."categorie;";
+     $result=mysql_query($requete);
+     $row=mysql_fetch_array($result);
+     $cat=$row["id"];
+   }
 ?>
       <!-- Le DIV main -->
       <div class="main">
@@ -46,10 +57,7 @@
   if ($CONFIG["menu"]=="Oui")
   {
     echo '          <div class="module">'."\n";
-    if ($cat=="") { $cat=1; }
     $requete="SELECT * FROM ".$CONFIG['dbprefix']."categorie WHERE id=$cat;";
-    mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
-    mysql_select_db($CONFIG["dbdatabase"]);
     $result=mysql_query($requete);
     $row=mysql_fetch_array($result);
     $categorie_name=$row["name"];

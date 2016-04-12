@@ -1,7 +1,7 @@
 ==============================================================================
-drkCMS v0.1.4
+drkCMS v0.1.5
 Gestionnaire de Contenu WEB
-Copyright (c) 2004-2005 Philippe Bousquet <Darken33@free.fr>
+Copyright (c) 2004-2008 Philippe Bousquet <Darken33@free.fr>
 http://darken33.free.fr/
 Ce logiciel est distribué sous licence Gnu General Public License
 ==============================================================================
@@ -49,7 +49,7 @@ Voila c'est terminé.
 
 COPYRIGHT & LICENSE
 -------------------
-drkCMS Copyright (c) 2004-2006 Philippe Bousquet
+drkCMS Copyright (c) 2004-2008 Philippe Bousquet
 
 Ce logiciel est distribué selon les termes de la licence Gnu General Public License,
 pour plus d'information veuillez consulter le fichier Lincense.txt.
@@ -58,7 +58,10 @@ pour plus d'information veuillez consulter le fichier Lincense.txt.
 
 CHANGELOG
 ---------
-v0.1.3:
+v0.1.5:
+  - Correction de bug de connection à la base si le menu est désactivé
+
+v0.1.4:
   - Correction de bugs liés à des WARNING de variables indéfinies
   
 v0.1.3:
@@ -86,7 +89,7 @@ v0.1 :
 CONTENU DE L'ARCHIVE
 --------------------
 
-drkcms-0.1.4
+drkcms-0.1.5
 |   article.php
 |   index.php
 |   License.txt

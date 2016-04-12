@@ -108,7 +108,7 @@
   $line[2]=' * Générer par l installateur de drkCMS'."\n";
   $line[3]=' */'."\n\n";
   $line[4]='/* NE PAS EDITER */'."\n\n";
-  $line[5]='$CONFIG["version"]="0.1.4";'."\n";
+  $line[5]='$CONFIG["version"]="0.1.5";'."\n";
   $line[6]='$CONFIG["dbtype"]="'.$install_dbtype.'";'."\n";
   $line[7]='$CONFIG["dbhost"]="'.$install_dbhost.'";'."\n";
   $line[8]='$CONFIG["dbdatabase"]="'.$install_dbname.'";'."\n";

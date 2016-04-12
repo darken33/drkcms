@@ -78,6 +78,8 @@
     echo '          <div class="module">'."\n";
     if ($cat=="") { $cat=1; }
     $requete="SELECT * FROM ".$CONFIG['dbprefix']."categorie WHERE id=$cat;";
+    mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
+    mysql_select_db($CONFIG["dbdatabase"]);
     $result=mysql_query($requete);
     $row=mysql_fetch_array($result);
     $categorie_name=$row["name"];

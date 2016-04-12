@@ -72,6 +72,10 @@
             une ancienne version de drkCMS sans conserver vos données 
           </p>
           <p>
+            <input name="install_type" value="update-0.1.4" type="radio"> Mise à jour :<br/>
+            Votre version actuelle de drkCMS est la 0.1.4<br>Il n'y a pas de mise à jour sur la base de données.    
+          </p>
+          <p>
             <input name="install_type" value="update-0.1.2" type="radio"> Mise à jour :<br/>
             Votre version actuelle de drkCMS est comprise entre 0.1 et 0.1.3<br>Attention : Pensez à sauvegarder votre base existante.    
           </p>

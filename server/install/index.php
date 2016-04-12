@@ -41,7 +41,7 @@
       <div class="categorie" style="text-align:center; padding-top: 2em;">
         <p>Merci d'avoir choisi <strong>drkCMS</strong>.</p>
         <form action="index.php" method="post">
-          Vous êtes dans l'assistant d'installation de drkCMS v0.1.4,<br />
+          Vous êtes dans l'assistant d'installation de drkCMS v0.1.5,<br />
           celui ci va vous aider à installer et paraméter ce logiciel.<br />
           <br /> 
           Cliquez sur suivant pour continuer l'installation.
