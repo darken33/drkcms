@@ -1,5 +1,5 @@
 ==============================================================================
-drkCMS v0.1
+drkCMS v0.1.2
 Gestionnaire de Contenu WEB
 Copyright (c) 2004-2005 Philippe Bousquet <Darken33@free.fr>
 http://darken33.free.fr/
@@ -8,8 +8,9 @@ Ce logiciel est distribué sous licence Gnu General Public License
 
 1 FONCTIONNALITEES
 2 INSTALLATION
-3 COPYRIGHT & LICENCE
-4 CONTENU DE L'ARCHIVE
+3 GANGELOG
+4 COPYRIGHT & LICENCE
+5 CONTENU DE L'ARCHIVE
 
 ------------------------------------------------------------------------------
 
@@ -44,6 +45,25 @@ votre Navigateur :
   http://localhost/drkcms/
 
 ------------------------------------------------------------------------------
+ 
+CHANGELOG
+---------
+
+v0.1.2 :
+- Correction d'un bug sur l'attribution de varibles $art, $rub et $cat
+  (http://darken33.free.fr/flyspray/index.php?do=details&id=2)
+  (http://darken33.free.fr/flyspray/index.php?do=details&id=2)
+- Problèmes de permissions sur certains fichiers
+
+v0.1.1 :
+- Correction des bugs liés au variables non définies et register_globals = Off
+- Utilisation des tableaux HTTP_POST_VARS et HTTP_GET_VARS
+- Passage de la variable HTTP_USER_AGENT en global
+
+v0.1 :
+- Version initiale
+
+------------------------------------------------------------------------------
 
 COPYRIGHT & LICENSE
 -------------------
@@ -57,7 +77,7 @@ pour plus d'information veuillez consulter le fichier Lincense.txt.
 STRUCTURE DE L'ARCHIVE
 ----------------------
 
-drkcms-0.1/
+drkcms-0.1.1/
 |   article.php
 |   index.php
 |   License.txt

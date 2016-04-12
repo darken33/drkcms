@@ -31,9 +31,9 @@
         <div class="leftpanel">
 <?
   // Récupération de POST ou GET
-  $cat=(isset($HTTP_POST_VARS["cat"]?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"]?$HTTP_GET_VARS["cat"]:""))
-  $rub=(isset($HTTP_POST_VARS["rub"]?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"]?$HTTP_GET_VARS["rub"]:""))
-  $art=(isset($HTTP_POST_VARS["art"]?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"]?$HTTP_GET_VARS["art"]:""))
+  $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+  $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
+  $art=(isset($HTTP_POST_VARS["art"])?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"])?$HTTP_GET_VARS["art"]:""));
 
   // Afficher le Menu
   if ($CONFIG["menu"]=="Oui")

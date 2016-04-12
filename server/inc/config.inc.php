@@ -6,7 +6,7 @@
  
  $CONFIG["dbhost"]="localhost";
  $CONFIG["dbuser"]="root";
- $CONFIG["dbpassword"]="";
+ $CONFIG["dbpassword"]="awecqd";
  $CONFIG["dbdatabase"]="drkcms";
  $CONFIG["titre"]="drkCMS - Gestionaire de Contenu WEB";
  $CONFIG["keywords"]="cms, web, internet, libre, logiciel, free, software";

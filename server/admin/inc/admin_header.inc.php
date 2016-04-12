@@ -5,7 +5,10 @@
  */
 
   // Récupération de POST ou GET
-  $passwd=(isset($HTTP_POST_VARS["passwd"]?$HTTP_POST_VARS["passwd"]:(isset($HTTP_GET_VARS["passwd"]?$HTTP_GET_VARS["passwd"]:""))
+  $passwd=(isset($HTTP_POST_VARS["passwd"])?$HTTP_POST_VARS["passwd"]:(isset($HTTP_GET_VARS["passwd"])?$HTTP_GET_VARS["passwd"]:""));
+  $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+  $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
+  $art=(isset($HTTP_POST_VARS["art"])?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"])?$HTTP_GET_VARS["art"]:""));
  
   require("inc/session.inc.php");
   require("inc/user.inc.php");
