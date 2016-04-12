@@ -22,10 +22,13 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-  // Récupération de POST ou GET
-  $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
-  $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
-  $art=(isset($HTTP_POST_VARS["art"])?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"])?$HTTP_GET_VARS["art"]:""));
+  /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+   $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
+   $art=(isset($HTTP_POST_VARS["art"])?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"])?$HTTP_GET_VARS["art"]:""));
 
   // Retour sur la page d'index si sollicité à tort
   if ($art == "") 
@@ -47,7 +50,7 @@
   {
     echo '          <div class="module">'."\n";
     if ($cat=="") { $cat=1; }
-    $requete="SELECT * FROM categorie WHERE id=$cat;";
+    $requete="SELECT * FROM ".$CONFIG['dbprefix']."categorie WHERE id=$cat;";
     mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
     mysql_select_db($CONFIG["dbdatabase"]);
     $result=mysql_query($requete);
@@ -56,7 +59,7 @@
     $categorie_desc=$row["description"];
     echo '            <h2 class="module">'.$row["name"].'</h2>'."\n";
     echo '            <ul class="module">'."\n";
-    $requete="SELECT * FROM rubrique WHERE categorie=$cat ORDER BY numord, date DESC;";
+    $requete="SELECT * FROM ".$CONFIG['dbprefix']."rubrique WHERE categorie=$cat ORDER BY numord, date DESC;";
     $result=mysql_query($requete);
     while ($row=mysql_fetch_array($result))
     {
@@ -83,7 +86,7 @@
         <div class="rightpanel">
           <div class="box"> 
 <?
-  $requete="SELECT * FROM article WHERE id=$art;";
+  $requete="SELECT * FROM ".$CONFIG['dbprefix']."article WHERE id=$art;";
   $result=mysql_query($requete);
   $row=mysql_fetch_array($result);
   echo '            <h2 class="box">'.$row["titre"].'</h2>'."\n";

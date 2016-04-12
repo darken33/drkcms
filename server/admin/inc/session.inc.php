@@ -38,24 +38,13 @@
    // Sauvegarde d'une variable
    function save($name,$value)
    {
-     /****************************************************
-      * PATCH 20050215 : global $_SESSION                *
-      * Par Philippe Bousquet <darken33@free.fr          *
-      ****************************************************/
-     global $HTTP_SESSION_VARS;
-     session_register($name);
-     $HTTP_SESSION_VARS[$name]=$value;
+     $_SESSION[$name]=$value;
    }
    
    // Charger une variable sauvegardée
    function load($name)
    {
-     /****************************************************
-      * PATCH 20050215 : global $_SESSION                *
-      * Par Philippe Bousquet <darken33@free.fr          *
-      ****************************************************/
-     global $HTTP_SESSION_VARS;
-     return (isset($HTTP_SESSION_VARS[$name])?$HTTP_SESSION_VARS[$name]:"");
+     return $_SESSION[$name];
    }
    
    // Fermer la session

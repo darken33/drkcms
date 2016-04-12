@@ -17,6 +17,9 @@
   } 
  
   // Controles des rubriques
+  $nom=str_replace("'",'&#039;',$nom);
+  $description=str_replace("'",'&#039;',$description);
+  
   if ($nom=="") 
   {
     $error="Veuillez saisir le nom de la catégorie.";
@@ -35,13 +38,25 @@
   mysql_select_db($CONFIG["dbdatabase"]);
   if ($id=="")
   {
-    $requete="INSERT INTO `categorie` ( `id` , `name` , `description` , `numord` , `date` ) VALUES ('', '$nom', '$description', '$numord', '$date');";
-    mysql_query($requete);    
+    $requete="INSERT INTO `".$CONFIG['dbprefix']."categorie` ( `id` , `name` , `description` , `numord` , `date` ) VALUES ('', '$nom', '$description', '$numord', '$date');";
+    $res=mysql_query($requete);    
+    if (!$res)
+    {
+      $page=$session->parseURL("edit_categorie.php","error=".mysql_error()."%20(".mysql_errno().")%20");
+      header("Location: $page");    
+      exit();
+    }
   }
   else
   {
-    $requete="UPDATE `categorie` SET `name` = '$nom', `description` = '$description', `numord` = '$numord', `date` = '$date' WHERE `id` = '$id' LIMIT 1;";
-    mysql_query($requete);    
+    $requete="UPDATE `".$CONFIG['dbprefix']."categorie` SET `name` = '$nom', `description` = '$description', `numord` = '$numord', `date` = '$date' WHERE `id` = '$id' LIMIT 1;";
+    $res=mysql_query($requete);    
+    if (!$res)
+    {
+      $page=$session->parseURL("edit_categorie.php","error=".mysql_error()."%20(".mysql_errno().")%20&cat=$cat");
+      header("Location: $page");    
+      exit();
+    }
   }
   
   // Retour à la liste de categories

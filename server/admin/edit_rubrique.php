@@ -21,6 +21,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
+  /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+   $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
+
   require("../inc/config.inc.php");
   require("inc/admin_header.inc.php");
 ?>
@@ -46,7 +54,7 @@
 <?
   if ($rub=="")
   {        
-    echo '          <h2 class="box">Ajouter une Rubrique  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$CONFIG["theme"].'/help.gif" alt="Aide" /></a></h2>'."\n";
+    echo '          <h2 class="box">Ajouter une Rubrique  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$theme_drkCMS.'/help.gif" alt="Aide" /></a></h2>'."\n";
     $nom="";
     $lien="";
     $description=$row["description"];
@@ -55,7 +63,7 @@
   else
   {
     echo '          <h2 class="box">Editer une Rubrique  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$CONFIG["theme"].'/help.gif" alt="Aide" /></a></h2>'."\n";
-    $requete="SELECT * FROM rubrique WHERE id=$rub;";
+    $requete="SELECT * FROM ".$CONFIG['dbprefix']."rubrique WHERE id=$rub;";
     mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
     mysql_select_db($CONFIG["dbdatabase"]);
     $result=mysql_query($requete);

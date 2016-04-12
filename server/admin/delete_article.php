@@ -3,6 +3,14 @@
  * par Philippe Bousquet <Darken33@free.fr> http://darken33.free.fr/
  * Distribué sous licence Gnu General Public License
  */
+
+  /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+   $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
+   $art=(isset($HTTP_POST_VARS["art"])?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"])?$HTTP_GET_VARS["art"]:""));
  
   require("../inc/config.inc.php");
   // Verifiaction des autorisations
@@ -19,7 +27,7 @@
   // Verif existence Article
   mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
   mysql_select_db($CONFIG["dbdatabase"]);
-  $requete="SELECT * from `article` WHERE `id` = '$art'";
+  $requete="SELECT * from `".$CONFIG['dbprefix']."article` WHERE `id` = '$art'";
   $result=mysql_query($requete);    
   if (mysql_num_rows($result)==0)
   {
@@ -30,7 +38,7 @@
   }
   
   // Suppression de l'article
-  $requete="DELETE FROM `article` WHERE `id` = '$art'";
+  $requete="DELETE FROM `".$CONFIG['dbprefix']."article` WHERE `id` = '$art'";
   mysql_query($requete);    
   
   // Retour à la liste de categories

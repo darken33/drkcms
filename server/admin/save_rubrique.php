@@ -16,7 +16,11 @@
     exit();
   } 
   $error="";
+
   // Controles des rubriques
+  $nom=str_replace("'",'&#039;',$nom);
+  $description=str_replace("'",'&#039;',$description);
+  
   if ($nom=="") 
   {
     $error="Veuillez saisir le nom de la rubrique.";
@@ -35,14 +39,26 @@
   mysql_select_db($CONFIG["dbdatabase"]);
   if ($id=="")
   {
-    $requete="INSERT INTO rubrique ( id, categorie , name , description , link , numord , date ) VALUES ('', '$cat', '$nom', '$description' , '$lien', '$numord', '$date');";
-    mysql_query($requete);    
+    $requete="INSERT INTO ".$CONFIG['dbprefix']."rubrique ( id, categorie , name , description , link , numord , date ) VALUES ('', '$cat', '$nom', '$description' , '$lien', '$numord', '$date');";
+    $res=mysql_query($requete);    
+    if (!$res)
+    {
+      $page=$session->parseURL("edit_rubrique.php","error=".mysql_error()."%20(".mysql_errno().")%20&cat=$cat");
+      header("Location: $page");    
+      exit();
+    }
 //  echo $requete."\n";
   }
   else
   {
-    $requete="UPDATE rubrique SET name = '$nom', description = '$description' , link = '$lien', numord = '$numord', date = '$date' WHERE id = '$id' LIMIT 1;";
-    mysql_query($requete);    
+    $requete="UPDATE ".$CONFIG['dbprefix']."rubrique SET name = '$nom', description = '$description' , link = '$lien', numord = '$numord', date = '$date' WHERE id = '$id' LIMIT 1;";
+    $res=mysql_query($requete);    
+    if (!$res)
+    {
+      $page=$session->parseURL("edit_rubrique.php","error=".mysql_error()."%20(".mysql_errno().")%20&cat=$cat&rub=$rub");
+      header("Location: $page");    
+      exit();
+    }
 //  echo $requete."\n";
   }
   

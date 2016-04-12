@@ -4,12 +4,22 @@
  * Distribué sous licence Gnu General Public License
  */
 
-  // Récupération de POST ou GET
-  $passwd=(isset($HTTP_POST_VARS["passwd"])?$HTTP_POST_VARS["passwd"]:(isset($HTTP_GET_VARS["passwd"])?$HTTP_GET_VARS["passwd"]:""));
-  $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
-  $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
-  $art=(isset($HTTP_POST_VARS["art"])?$HTTP_POST_VARS["art"]:(isset($HTTP_GET_VARS["art"])?$HTTP_GET_VARS["art"]:""));
- 
+  /****************************************************
+   * PATCH 20050209 : global HTTP_USER_AGENT          *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   global $HTTP_USER_AGENT;
+   global $HTTP_COOKIE_VARS;
+
+   $theme_drkCMS = ((isset($HTTP_POST_VARS['seltheme']))?$HTTP_POST_VARS['seltheme']:((isset($HTTP_COOKIE_VARS['theme_drkCMS']))?$HTTP_COOKIE_VARS['theme_drkCMS']:$CONFIG['theme']));
+
+   /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $error=(isset($HTTP_POST_VARS["error"])?$HTTP_POST_VARS["error"]:(isset($HTTP_GET_VARS["error"])?$HTTP_GET_VARS["error"]:""));
+   $PHPSESSID=(isset($HTTP_POST_VARS["PHPSESSID"])?$HTTP_POST_VARS["PHPSESSID"]:(isset($HTTP_GET_VARS["PHPSESSID"])?$HTTP_GET_VARS["PHPSESSID"]:""));
+   
   require("inc/session.inc.php");
   require("inc/user.inc.php");
   $session=new Session;
@@ -32,11 +42,11 @@ echo '    <title>'.$CONFIG["titre"].'</title>'."\n";
  echo '    <meta name="keywords" lang="fr" content="'.$CONFIG["keywords"].'" />'."\n";
  if (ereg("MSIE",$HTTP_USER_AGENT))
  {
-   echo '    <link rel="stylesheet" href="../'.$CONFIG["theme"].'/style_ie.css" type="text/css" />'."\n";
+   echo '    <link rel="stylesheet" href="../'.$theme_drkCMS.'/style_ie.css" type="text/css" />'."\n";
  }  
  else
  {
-   echo '    <link rel="stylesheet" href="../'.$CONFIG["theme"].'/style.css" type="text/css" />'."\n";
+   echo '    <link rel="stylesheet" href="../'.$theme_drkCMS.'/style.css" type="text/css" />'."\n";
  }  
 ?>
   </head>
@@ -48,7 +58,7 @@ echo '    <title>'.$CONFIG["titre"].'</title>'."\n";
         <!-- Le DIV title -->
         <div class="title">
 <?
-  $file="../".$CONFIG["theme"]."/baniere.png";
+  $file="../".$theme_drkCMS."/baniere.png";
   if (file_exists($file))
   {
     echo '          <img class="title" src="'.$file.'" alt="'.$CONFIG["titre"].'" />'."\n";

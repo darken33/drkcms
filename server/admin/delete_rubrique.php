@@ -3,6 +3,13 @@
  * par Philippe Bousquet <Darken33@free.fr> http://darken33.free.fr/
  * Distribué sous licence Gnu General Public License
  */
+
+  /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+   $rub=(isset($HTTP_POST_VARS["rub"])?$HTTP_POST_VARS["rub"]:(isset($HTTP_GET_VARS["rub"])?$HTTP_GET_VARS["rub"]:""));
  
   require("../inc/config.inc.php");
   // Verifiaction des autorisations
@@ -19,7 +26,7 @@
   // Verif existence Rubrique
   mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
   mysql_select_db($CONFIG["dbdatabase"]);
-  $requete="SELECT * from `rubrique` WHERE `id` = '$rub'";
+  $requete="SELECT * from `".$CONFIG['dbprefix']."rubrique` WHERE `id` = '$rub'";
   $result=mysql_query($requete);    
   if (mysql_num_rows($result)==0)
   {
@@ -30,7 +37,7 @@
   }
   
   // Verif non existence Articles
-  $requete="SELECT * from `article` WHERE `rubrique` = '$rub'";
+  $requete="SELECT * from `".$CONFIG['dbprefix']."article` WHERE `rubrique` = '$rub'";
   $result=mysql_query($requete);    
   if (mysql_num_rows($result)!=0)
   {
@@ -41,7 +48,7 @@
   }
 
   // Suppression de l'article
-  $requete="DELETE FROM `rubrique` WHERE `id` = '$rub'";
+  $requete="DELETE FROM `".$CONFIG['dbprefix']."rubrique` WHERE `id` = '$rub'";
   mysql_query($requete);    
   
   // Retour à la liste de categories

@@ -50,7 +50,7 @@ class User
   
   function connect($pass,$adminpass,$session)
   {
-    if ($pass==$adminpass)
+    if (md5($pass)==$adminpass)
     {
       $this->status = "actif";
       $this->saveData($session);

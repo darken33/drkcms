@@ -9,13 +9,22 @@
    * Par Philippe Bousquet <darken33@free.fr          *
    ****************************************************/
    global $HTTP_USER_AGENT;
+   global $HTTP_COOKIE_VARS;
+   global $HTTP_POST_VARS;
 
-   /****************************************************
-   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
-   * Par Philippe Bousquet <darken33@free.fr          *
-   ****************************************************/
-   $error=(isset($HTTP_POST_VARS["error"])?$HTTP_POST_VARS["error"]:(isset($HTTP_GET_VARS["error"])?$HTTP_GET_VARS["error"]:""));
+  function utime ()
+	{
+		$time = explode( " ", microtime());
+		$usec = (double)$time[0];
+		$sec = (double)$time[1];
+		return $sec + $usec;
+	}
+   
+  $start = utime(); 
+ if (isset($HTTP_POST_VARS['settheme'])) setcookie("theme_drkCMS",$HTTP_POST_VARS['seltheme'],time()+31536000);
  
+   $theme_drkCMS = ((isset($HTTP_POST_VARS['seltheme']))?$HTTP_POST_VARS['seltheme']:((isset($HTTP_COOKIE_VARS['theme_drkCMS']))?$HTTP_COOKIE_VARS['theme_drkCMS']:$CONFIG['theme']));
+   
  echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -29,11 +38,11 @@ echo '    <title>'.$CONFIG["titre"].'</title>'."\n";
  echo '    <meta name="keywords" lang="fr" content="'.$CONFIG["keywords"].'" />'."\n";
  if (ereg("MSIE",$HTTP_USER_AGENT))
  {
-   echo '    <link rel="stylesheet" href="'.$CONFIG["theme"].'/style_ie.css" type="text/css" />'."\n";
+   echo '    <link rel="stylesheet" href="'.$theme_drkCMS.'/style_ie.css" type="text/css" />'."\n";
  }  
  else
  {
-   echo '    <link rel="stylesheet" href="'.$CONFIG["theme"].'/style.css" type="text/css" />'."\n";
+   echo '    <link rel="stylesheet" href="'.$theme_drkCMS.'/style.css" type="text/css" />'."\n";
  }  
 ?>
   </head>
@@ -44,15 +53,16 @@ echo '    <title>'.$CONFIG["titre"].'</title>'."\n";
       <div class="head">
         <!-- Le DIV title -->
         <div class="title">
+          &nbsp;
 <?
-  $file=$CONFIG["theme"]."/baniere.png";
-  if (file_exists($file))
+  if ($CONFIG['logo']=="defaut") $file=$theme_drkCMS."/baniere.png";
+  else $file=$CONFIG['logo'];
+  if ($file!="" and file_exists($file))
   {
-    echo '          <img class="title" src="'.$file.'" alt="'.$CONFIG["titre"].'" />'."\n";
+    echo '          <img class="title" src="'.$file.'" alt="'.$CONFIG["titre"].'" title="'.$CONFIG["titre"].'" />'."\n";
   }        
   else
   {
-    $error="$file fichier inconnue";
     echo '          <h1 class="title">'.$CONFIG["titre"].'</h1>'."\n";
   }
 ?>          
@@ -64,7 +74,7 @@ echo '    <title>'.$CONFIG["titre"].'</title>'."\n";
   if ($CONFIG["navbar"]=="Oui")
   {        
     echo '        |';
-    $requete="SELECT * FROM categorie ORDER BY numord ASC, date DESC;";
+    $requete="SELECT * FROM ".$CONFIG['dbprefix']."categorie ORDER BY numord ASC, date DESC;";
     mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
     mysql_select_db($CONFIG["dbdatabase"]);
     $result=mysql_query($requete);

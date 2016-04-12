@@ -6,7 +6,7 @@ body
   background: gray;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10pt;
+  font-size: 10px;
   font-weight: normal;
   font-style: normal;
   text-align: justify;
@@ -64,8 +64,9 @@ img.title
 h1.title
 {
   margin: 0.25em;
-  color: #0000FF;
+  color: #A000A0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
 }
 /*******************************
  * Le DIV navbar               *
@@ -75,8 +76,10 @@ div.navbar
   margin: 0;
   border-top: black 1px solid;
   border-bottom: black 1px solid;
-  background: #800080;
-  font-size: 9pt;
+  background: #800080 url("bg_nav.gif");
+  background-repeat: repeat-x;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: black;
   text-align: center;
@@ -85,7 +88,7 @@ a.navbar
 {
   color: white;
   text-decoration: none;
-  background-color: #800080;
+  background-color: transparent;
 }
 a.navbar:hover
 {
@@ -101,7 +104,7 @@ div.error
   padding: 0.5em;
   color: red;
   font-family: Courrier, monospace;
-  font-size: 12pt;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
 }     
@@ -119,8 +122,13 @@ div.leftpanel
  *******************************/
 div.rightpanel
 {
-  margin-left: 205px;
   padding: 1em;
+  /********* I.E. **********/
+  // margin-left: 210px;
+  // height:700px;
+  /********* MOZ **********/
+  margin-left: 205px;
+  min-height:700px;
 }
 /*******************************
  * Le DIV module               *
@@ -130,18 +138,20 @@ div.module
   background-color: #C0C0C0;
   border: black 1px solid;
   border-right: black 1px solid;
-  padding-right: 0em;
-  padding-left: 0em;
+  padding: 0;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
+  font-size:11px;
 } 
 h2.module
 {
   color: white;
-  background-color: #800080;
+  background: #800080 url("bg_nav.gif");
+  background-repeat: repeat-x;
   margin: 0;
   margin-bottom: 0.5em;
-  font-size:12pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:14px;
   text-align: center;
 }
 ul.module
@@ -185,8 +195,13 @@ div.categorie
   margin-top: 1em;
   margin-left: 3em;
   margin-right: 3em;
-  padding: 0.25em;
   margin-bottom: 2em;
+  padding: 0.25em;
+  font-size:11px;
+  /********* I.E. **********/
+  // height: 96px;
+  /********* MOZ **********/
+  min-height: 96px;
 } 
 /*******************************
  * Le DIV box                  *
@@ -196,22 +211,31 @@ div.box
   text-align: justify;
   padding: 0.25em;
   margin-bottom: 4em;
-  min-height: 450px;
+  /********* I.E. **********/
+  // height: 600px;
+  /********* MOZ **********/
+  min-height: 600px;
 }
 div.box2
 {
   text-align: justify;
   padding: 0.25em;
   margin: 2em;
-  min-height: 450px;
+  /********* I.E. **********/
+  // height: 600px;
+  /********* MOZ **********/
+  min-height: 600px;
 }
 h2.box
 {
   color: white;
-  background-color: #800080;
+  background: #800080 url("bg_nav.gif");
+  background-repeat: repeat-x;
   margin: 0;
   margin-bottom: 0.5em;
   vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:18px;
 }
 /*******************************
  * Le DIV article              *
@@ -227,13 +251,29 @@ div.article
   margin-bottom: 1em;
   background-color: #FFFFFF;
   border: #000000 1px solid;
+  font-size: 11px;
+  /********* I.E. **********/
+  // height: 96px;  
+  /********* MOZ **********/
   min-height: 96px;
-  font-size: 9pt;
+}
+div.article2
+{
+  text-align: justify;
+  padding: 0.25em;
+  padding-top: 0;
+  margin-top: 0em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  background-color: transparent;
+  font-size: 11px;
 }
 h3.article
 {
   color: #0000FF;
-  font-size: 11pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   margin: 0em;  
   margin-bottom: 0.25em;
 }
@@ -324,7 +364,7 @@ input.bouton
   font-weight: bold;
   background-color: #C0C0C0;
   border-color: #C0C0C0;
-  font-size: 9pt;
+  font-size: 11px;
 } 
 /*******************************
  * Aide                        *
@@ -345,5 +385,5 @@ div.foot
   background: #C0C0C0;
   color: black;
   text-align: center;
-  font-size: 8pt;
+  font-size: 10px;
 }    

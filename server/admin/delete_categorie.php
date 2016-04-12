@@ -3,6 +3,12 @@
  * par Philippe Bousquet <Darken33@free.fr> http://darken33.free.fr/
  * Distribué sous licence Gnu General Public License
  */
+
+  /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
  
   require("../inc/config.inc.php");
   // Verifiaction des autorisations
@@ -19,7 +25,7 @@
   // Verif existence Categorie
   mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
   mysql_select_db($CONFIG["dbdatabase"]);
-  $requete="SELECT * from `categorie` WHERE `id` = '$cat'";
+  $requete="SELECT * from `".$CONFIG['dbprefix']."categorie` WHERE `id` = '$cat'";
   $result=mysql_query($requete);    
   if (mysql_num_rows($result)==0)
   {
@@ -30,7 +36,7 @@
   }
   
   // Verif non existence Articles
-  $requete="SELECT * from `rubrique` WHERE `categorie` = '$cat'";
+  $requete="SELECT * from `".$CONFIG['dbprefix']."rubrique` WHERE `categorie` = '$cat'";
   $result=mysql_query($requete);    
   if (mysql_num_rows($result)!=0)
   {
@@ -41,7 +47,7 @@
   }
   
   // Suppression de l'article
-  $requete="DELETE FROM `categorie` WHERE `id` = '$cat'";
+  $requete="DELETE FROM `".$CONFIG['dbprefix']."categorie` WHERE `id` = '$cat'";
   mysql_query($requete);    
   
   // Retour à la liste de categories

@@ -1,17 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-  <title>drkCMS - Manuel Utilisateur</title>
-  <meta http-equiv="content-type"
- content="text/html; charset=ISO-8859-1">
-</head>
-<body bgcolor="#ffffff" text="#000000" link="#0000ee" alink="#0000ee"
- vlink="#551a8b">
+<html><head><title>drkCMS - Manuel Utilisateur</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head>
+
+<body alink="#0000ee" bgcolor="#ffffff" link="#0000ee" text="#000000" vlink="#551a8b">
 <h1>drkCMS - Manuel Utilisateur</h1>
-<b>Le 06/04/2004,</b><b> par Philippe Bousquet</b><b> &lt;</b><a
- href="mailto:Darken33@free.fr"> Darken33@free.fr</a><b>&gt; </b><a
- href="http://darken33.free.fr/">http://darken33.free.fr/</a><br>
-<hr width="100%" size="2"><font color="#000000"><b>SOMMAIRE<br>
+<b>Le 06/04/2004,</b><b> par Philippe Bousquet</b><b> &lt;</b><a href="mailto:Darken33@free.fr"> Darken33@free.fr</a><b>&gt; </b><a href="http://darken33.free.fr/">http://darken33.free.fr/</a><br>
+<span style="font-weight: bold;">Modification le 09/07/2005</span><b>,</b><b> par Philippe Bousquet</b><b> &lt;</b><a href="mailto:Darken33@free.fr"> Darken33@free.fr</a><b>&gt; </b><a href="http://darken33.free.fr/">http://darken33.free.fr/</a>
+<hr size="2" width="100%"><font color="#000000"><b>SOMMAIRE<br>
 </b></font>
 <ul id="mozToc">
 <!--mozToc h2 1 h3 2 h4 3 h5 4 h6 5--><li><a href="#mozTocId537504">1.
@@ -25,8 +21,8 @@ Presentation</a>
     <ul>
       <li><a href="#mozTocId51918">2.1. Configuration Requise</a></li>
       <li><a href="#mozTocId15997">2.2. Configuration Recommend&eacute;e</a></li>
-      <li><a href="#mozTocId884234">2.3. Installation</a></li>
-      <li><a href="#mozTocId227232">2.4. Configuration</a>
+      <li><a href="#mozTocId884234">2.3. Installation et mise &agrave; jour</a></li>
+      <li><a href="#mozTocId227232">2.4. Le fichier de configuration</a>
         <ul>
           <li><a href="#mozTocId534563">2.4.1. La configuration de
 base&nbsp;</a></li>
@@ -59,7 +55,7 @@ Cat&eacute;gories</a></li>
   <li><a href="#mozTocId917344">7. Auteur</a></li>
 </ul>
 <font color="#000000"><b></b></font>
-<hr width="100%" size="2">
+<hr size="2" width="100%">
 <h2><a name="mozTocId537504" class="mozTocH2"></a>1. Presentation</h2>
 drkCMS est un gestionaire de contenu WEB tels que SPIP (mais largement
 simplifi&eacute;), Ecrit en PHP et fonctionnant sur une base de
@@ -100,7 +96,7 @@ g&eacute;n&eacute;rer des pages respectant le XHTML 1.0</li>
   <li>on peut facilement para&eacute;ter la mise en forme graces aux
 feuilles de styles CSS 2</li>
 </ul>
-<hr width="100%" size="2">
+<hr size="2" width="100%">
 <h2><a name="mozTocId996846" class="mozTocH2"></a>2. Installation</h2>
 <h3><a name="mozTocId51918" class="mozTocH3"></a>2.1. Configuration
 Requise</h3>
@@ -120,79 +116,70 @@ d&eacute;velopp&eacute; drkCMS et qui donc est sure de le supporter :<br>
   <li>PHP 4 v0.1.2</li>
   <li>MySQL v3.2.125</li>
 </ul>
-<h3><a name="mozTocId884234" class="mozTocH3"></a>2.3. Installation</h3>
+<h3><a name="mozTocId884234" class="mozTocH3"></a>2.3. Installation &amp; Mise &agrave; jour<br>
+</h3>
 Dans un premier temps vous devez d&eacute;compresser l'archive
 contenant drkCMS, dans le r&eacute;pertoire contenant votre site WEB :<br>
-<blockquote><code>$ tar xzf drkcms-0.1.tar.gz ./</code><br>
+<blockquote><code>$ tar xzf drkcms-0.1.tar.gz </code><br>
 </blockquote>
 Ensuite vous devz cr&eacute;er votre base de donn&eacute;es sous MySQL<br>
 <blockquote><code>
-$ mysql -uroot<br/>
-mysql> create database drkcms;<br/>
+$ mysql -uroot<br>
+mysql&gt; create database drkcms;<br>
 Query OK, 1 row affected (0.00 sec)
 </code><br>
-</blockquote>
-Enfin executer sous MySQL le contenu du fichier sql/drkcms.sql<br>
-<blockquote><code>$ tar xzf drkcms-0.1.tar.gz ./</code><br>
-</blockquote>
-Vous pouvez alors suprrimer le r&eacute;pertoire sql<br>
-<blockquote><code>$ rm -rf sql/</code><br>
-</blockquote>
-Le site n'est cependant pas tout &agrave; fait pret, en effet il faut
-maintenant
-param&eacute;trer drkCMS pour qu'il prenne en compte toute les
-informations
-relatives &agrave; votre site WEB.<br>
+</blockquote>Enfin il suffit d'ouvrir l'application dans votre
+navigateur web, et une procedure d'installation automatique va
+s'ex&eacute;cuter.<br>
+Vous n'avez plus qu'a suivre les instructions : <a href="http://localhost/drkcms-0.1.3/">http://localhost/drkcms-0.1.3/</a>.<br>
+<span style="font-family: monospace;"><br>
+</span>Vous pouvez alors suprimer le r&eacute;pertoire install<br>
+<blockquote><code>$ rm -rf install/</code><br>
+</blockquote>Voila c'est termin&eacute;.<br>
 <h3><a name="mozTocId227232" class="mozTocH3"></a><code></code>2.4.
 Configuration</h3>
 Afin de simplifier au maximum la configuration du votre site, tous les
 param&egrave;tres
 sont stock&eacute;s dans le fichier inc/config.inc.php.<br>
+<br>
+<span style="font-weight: bold;">ATTENTION :</span> ne faites des modifications dans ce fichier que si vous &ecirc;tes sur de ce que vous faites.<br>
 <h4><a name="mozTocId534563" class="mozTocH4"></a>2.4.1. La
 configuration de base&nbsp;</h4>
 Voici les diff&eacute;rents champs modifiables pour la configuration de
 votre
 site WEB :<br>
-<blockquote><code>&nbsp;<b>$CONFIG["dbhost"]="localhost";</b></code>
-Ceci indique quel est votre serveur MySQL<br>
-  <b><code>&nbsp;$CONFIG["dbuser"]="root";</code></b> Ceci permet
-de sp&eacute;cifier l'utilisateur MySQL<br>
-  <b><code>&nbsp;$CONFIG["dbpassword"]="";</code></b> Ceci permet
-de sp&eacute;cifier le Mot de passe de l'utilisateur MySQL<br>
-  <b><code>&nbsp;$CONFIG["dbdatabase"]="drkcms";</code></b> Ceci
-est le nom de votre Base MySQL<br>
-  <b><code>&nbsp;$CONFIG["titre"]="drkCMS - Gestionnaire de Contenue
-WEB";</code></b> Ceci est le titre de votre site web<br>
-  <b><code>&nbsp;$CONFIG["keywords"]="drkCMS, Content, Manager, System,
-CMS, PHP, MySQL, free, software";</code></b> Ici on sp&eacute;cifie les
-mots
-cl&eacute;s pour les moteurs de recherches<br>
-  <b><code>&nbsp;</code><code>$CONFIG["theme"]="themes/default";</code></b>
-Ici on sp&eacute;cifie le r&eacute;pertoire du th&egrave;me &agrave;
-utiliser<br>
-  <b><code>&nbsp;$CONFIG["password"]="admin";</code></b> Ici on
-sp&eacute;cifie
-le mot de passe pour l'administration du site (ajout d'articles, de
-cat&eacute;gories,
-...)<br>
-  <b><code>&nbsp;$CONFIG["webmaster"]="Philippe Bousquet";</code></b>
-Ici on indique le Nom du Webmaster<br>
-  <b>&nbsp; <code>$CONFIG["adresse"]="28 cours du
-g&eacute;n&eacute;ral
-De Gaulle, 33170 Gradignan";</code></b> L'adresse du Webmaster
-(Facultatif)<br>
-  <b><code>&nbsp;$CONFIG["telephone"]="06.61.99.25.84";</code></b> Le
-numero de t&eacute;l&eacute;phone du Webmaster (Facultatif)<br>
-  <b><code>&nbsp;$CONFIG["email"]="Darken33@free.fr";</code></b>
-L'email du Webmaster<br>
-  <b><code>&nbsp;$CONFIG["navbar"]="Oui";</code></b> Ici on indique
-si l'on veut afficher la bare de navigation (Inutile si vous ne voulez
+<blockquote><code><span style="font-weight: bold;">$CONFIG["version"]="0.1.3";&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Version de drkCMS<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["dbtype"]="mysql";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Type de base de donn&eacute;e (aujourd'hui seul mysql est support&eacute;)<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["dbhost"]="localhost";&nbsp; </span></code>Adresse du serveur MySQL<code><span style="font-weight: bold;"> </span><br>
+  <span style="font-weight: bold;">$CONFIG["dbdatabase"]="drkcms";</span></code> Nom de la base de donn&eacute;es<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["dbuser"]="root";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>User pour l'acces &agrave; la base de donn&eacute;es<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["dbpassword"]="";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Mot de passe pour l'acces &agrave; la base de donn&eacute;es<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["dbprefix"]="drkcms_";&nbsp; </span></code>Pr&eacute;fixe des tables dans la base<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["password"]="21232f297a57a5a743894a0e4a801fc3";</span> </code>Mot de passe pour la partie admin du site (Crypt&eacute; en MD5)<code> <br>
+  <span style="font-weight: bold;">$CONFIG["titre"]="drkCMS : Gestionaire de contenu WEB"; </span></code>Titre du site web<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["logo"]="defaut";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; </span></code>Logo de votre site web<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["keywords"]="php, mysql, free, cms";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Mots cl&eacute;s de votre site (pour les moteurs de recherche)<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["theme"]="themes/default";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></code>Theme utilis&eacute; pour votre site<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["webmaster"]="Philippe BOUSQUET";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Nom du webmaster<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["adresse"]="";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></code><code><span style="font-weight: bold;"></span></code> Adresse du webmaster<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["telephone"]=""; </span></code><code><span style="font-weight: bold;"></span></code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Telephone du webmaster<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["email"]="Darken33@free.fr";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code><code><span style="font-weight: bold;"></span></code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email du webmaster<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["icq"]="";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></code>Num ICQ du webmaster<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["host"]="http://free.fr/";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></code>Url de votre h&eacute;bergeur<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["host_logo"]="";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></code>Logo de votre h&eacute;bergeur<code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["navbar"]="Oui";&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Afficher la bare de navigation (Inutile si vous ne voulez
 qu'une
-seule Cat&eacute;gorie) <br>
-  <b><code>&nbsp;$CONFIG["menu"]="Oui";</code></b> Ici on indique
-si l'on veut afficher le menu <br>
-  <code><b>&nbsp;$CONFIG["date"]="Oui";</b> </code>Ici on indique
-si l'on veut afficher la date de cr&eacute;ation des articles.<br>
+seule Cat&eacute;gorie) <code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["menu"]="Oui";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Afficher le menu <code><span style="font-weight: bold;"></span><br>
+  <span style="font-weight: bold;">$CONFIG["date"]="Oui";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></code>Afficher la date de cr&eacute;ation des articles<code><span style="font-weight: bold;"></span></code><code><b></b></code><br>
 </blockquote>
 <h4><a name="mozTocId404870" class="mozTocH4"></a>2.4.2. Les Modules de
 drkCMS</h4>
@@ -203,9 +190,8 @@ du menu), drkCMS est fournit avec 4 Modules : <br>
 Module permetant la connection &agrave; l'administration du site
 (Ajout,
 modification d'Articles)<br>
-  <code><b>&nbsp;$MODULES[1]="modules/visiteurs.mod.php";</b> </code>
-Module affichant un compteur de visite (Sp&eacute;cifique &agrave;
-Free.fr)<br>
+  <code><b>&nbsp;$MODULES[1]="modules/themse.mod.php";</b> </code>
+Module permettat la s&eacute;lection d'un theme.<br>
   <b><code>&nbsp;$MODULES[2]="modules/webmaster.mod.php";</code></b>
 Module affichant les infos du Webmaster<br>
   <b><code>&nbsp;$MODULES[3]="modules/hebergeur.mod.php";</code></b>
@@ -217,9 +203,9 @@ pour cela il suffit de rajouter un &eacute;l&eacute;ment dans le
 tableau
 :<br>
 <code></code>
-<blockquote><code>&nbsp;$MODULES[4]="modules/monmodule.php";</code><br>
+<blockquote><code style="font-weight: bold;">&nbsp;$MODULES[4]="modules/monmodule.php";</code><br>
 </blockquote>
-<hr width="100%" size="2">
+<hr size="2" width="100%">
 <h2><a name="mozTocId809010" class="mozTocH2"></a>3. Utilisation de
 drkCMS</h2>
 drkCMS se veut tr&egrave;s simple, de ce fait il ne comprend que deux
@@ -317,7 +303,7 @@ l'article s&eacute;lectionn&eacute;.<br>
 Le pied de page<br>
 </b></u>Le pied de page affiche des information sur drkCMS.<br>
 <br>
-<hr width="100%" size="2"><br>
+<hr size="2" width="100%"><br>
 <h2><a name="mozTocId519618" class="mozTocH2"></a>4. Administration</h2>
 Le module administration inclus dans drkCSM, permet de se connecter au
 panneau d'administration du site. Pour cela il suffit de cliquer sur ce
@@ -393,7 +379,7 @@ d&eacute;faut(Permet de ne pas afficher un article en cours d'edition)</li>
 </ul>
 <h3><a name="mozTocId848692" class="mozTocH3"></a>4.4. Le Langage
 Interne</h3>
-<table border="1" style="width: 80%;">
+<table style="width: 80%;" border="1">
   <tbody>
     <tr>
       <td style="width: 25%;"><b>Code</b></td>
@@ -474,8 +460,7 @@ texte</td>
     <tr>
       <td style="vertical-align: top;"><code><b>[CODE]</b>code source<b>[/CODE]</b></code></td>
       <td style="vertical-align: top;">Permet de formater un code source</td>
-      <td> <code></code><code><code
- style="margin: 1em 1em 1em 2em; display: block; background-color: silver;">$
+      <td> <code></code><code><code style="margin: 1em 1em 1em 2em; display: block; background-color: silver;">$
 echo "coucou"</code> </code></td>
     </tr>
     <tr>
@@ -513,9 +498,8 @@ email</td>
     </tr>
     <tr>
       <td style="vertical-align: top;"><code><b>[ICO]</b>image<b>[/ICO]</b></code></td>
-      <td style="vertical-align: top;">Permet d'afficher une icone</td>
-      <td> <code></code><img src="image.png" alt="icone"
- style="float: left;">Texte Texte Texte Texte Texte Texte Texte Texte
+      <td style="vertical-align: top;">Permet d'afficher une icone<br><a href="images.html">La liste des images</a></td>
+      <td> <code></code><img src="image.png" alt="icone" style="float: left;">Texte Texte Texte Texte Texte Texte Texte Texte
 Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte Texte
 Texte </td>
     </tr>
@@ -529,17 +513,16 @@ Texte </td>
   </tbody>
 </table>
 <br>
-<hr width="100%" size="2">
+<hr size="2" width="100%">
 <h2><a name="mozTocId359554" class="mozTocH2"></a>5. Ou trouver drkCMS</h2>
 <span style="font-weight: bold;">drkCMS</span> vas surement
 &eacute;voluer, donc si vous voulez r&eacute;cup&eacute;rer les
 nouvelles versions ou tous simplement vous tenir inform&eacute; sur le
-projet, veuillez vous connecter &agrave; l'addresse suivante <a
- href="http://darken33.free.fr/">http://darken33.free.fr/</a>.<br>
-<hr width="100%" size="2">
+projet, veuillez vous connecter &agrave; l'addresse suivante <a href="http://darken33.free.fr/">http://darken33.free.fr/</a>.<br>
+<hr size="2" width="100%">
 <h2><a name="mozTocId174414" class="mozTocH2"></a>6. Copyright &amp;
 Licence</h2>
-<b>drkCMS</b> Copyright &copy; 2004 - Philippe Bousquet
+<b>drkCMS</b> Copyright &copy; 2004-2005 Philippe Bousquet
 &lt;Darken33@free.fr&gt;.<br>
 Ce logiciel est sous licence <b>Gnu Genral Public License</b>.<br>
 Du fait de la gratuit&eacute; du logiciel, et comme
@@ -553,11 +536,9 @@ ou d&eacute;riv&eacute;s.<br>
 </span>R&eacute;sidence le Vend&ocirc;me Apt 21, 80 rue des
 Sabli&egrave;res 33000 Bordeaux. France.<br>
 <span style="font-weight: bold;">Tel :</span> 06.61.99.25.84<br>
-<span style="font-weight: bold;">Email :</span> <a
- href="mailto:Darken33@free.fr">Darken33@free.fr</a><br>
+<span style="font-weight: bold;">Email :</span> <a href="mailto:Darken33@free.fr">Darken33@free.fr</a><br>
 <br>
-<hr width="100%" size="2">Copyright (c) 2004 - Philippe Bousquet<br>
+<hr size="2" width="100%">Copyright (c) 2004 - Philippe Bousquet<br>
 Ce document est sous Licence Free Documentation License<br>
 <br>
-</body>
-</html>
+</body></html>

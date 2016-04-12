@@ -42,7 +42,7 @@
       <!-- Le DIV main -->
       <div class="main">
         <div class="box2"> 
-          <h2 class="box">Les Catégories du site <a href="../help/drkCMS.html#mozTocId704616" target="Help"><? echo '<img class="help" src="../'.$CONFIG["theme"].'/help.gif" alt="Aide" />'; ?></a></h2>
+          <h2 class="box">Les Catégories du site <a href="../help/drkCMS.html#mozTocId704616" target="Help"><? echo '<img class="help" src="../'.$theme_drkCMS.'/help.gif" alt="Aide" />'; ?></a></h2>
           <div class="admin">
 <? echo '            <form action="'.$session->parseURL("edit_categorie.php").'" method="post">'."\n"; ?>
               <input class="bouton" type="submit" name="action" value="Nouvelle Catégorie" />
@@ -50,7 +50,7 @@
             <table class="admin">
               <tbody>
 <?
-  $requete="SELECT * FROM categorie ORDER BY numord, date DESC;";
+  $requete="SELECT * FROM ".$CONFIG['dbprefix']."categorie ORDER BY numord, date DESC;";
   mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
   mysql_select_db($CONFIG["dbdatabase"]);
   $result=mysql_query($requete);

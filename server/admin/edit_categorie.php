@@ -21,6 +21,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
+  /****************************************************
+   * PATCH 20050209 : utilisations HTTP_POST_VARS     *
+   * Par Philippe Bousquet <darken33@free.fr          *
+   ****************************************************/
+   $cat=(isset($HTTP_POST_VARS["cat"])?$HTTP_POST_VARS["cat"]:(isset($HTTP_GET_VARS["cat"])?$HTTP_GET_VARS["cat"]:""));
+
   require("../inc/config.inc.php");
   require("inc/admin_header.inc.php");
 ?>
@@ -45,7 +52,7 @@
 <?
   if ($cat=="")
   {        
-    echo '          <h2 class="box">Ajouter une Catégorie  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$CONFIG["theme"].'/help.gif" alt="Aide" /></a></h2>'."\n";
+    echo '          <h2 class="box">Ajouter une Catégorie  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$theme_drkCMS.'/help.gif" alt="Aide" /></a></h2>'."\n";
     $nom="";
     $description="";
     $numord=1;
@@ -53,7 +60,7 @@
   else
   {
     echo '          <h2 class="box">Editer une Catégorie  <a href="../help/drkCMS.html#mozTocId848692" target="Help"><img class="help" src="../'.$CONFIG["theme"].'/help.gif" alt="Aide" /></a></h2>'."\n";
-    $requete="SELECT * FROM categorie WHERE id=$cat;";
+    $requete="SELECT * FROM ".$CONFIG['dbprefix']."categorie WHERE id=$cat;";
     mysql_connect($CONFIG["dbhost"],$CONFIG["dbuser"],$CONFIG["dbpassword"]);
     mysql_select_db($CONFIG["dbdatabase"]);
     $result=mysql_query($requete);
